@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vertical Slider + Directional Fade</title>
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+      flex-direction: column;
+    }
+
+    .slider-track {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.6s ease;
+    }
+
+
+    .thumb {
+      width: 50px;
+      height: 35px;
+      border-radius: 6px;
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      opacity: 0.6;
+      border: 2px solid transparent;
+      transition: opacity 0.3s, border-color 0.3s;
+    }
+
+    .thumb:hover {
+      opacity: 1;
+    }
+
+    .thumb.active {
+      opacity: 1;
+      border-color: white;
+    }
+
+    .slider-section {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      width: 1150px;
+    }
+
+    .thumbs {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      flex-wrap: wrap;
+      max-width: 500px;
+    }
+
+    .slider-container {
+      position: relative;
+      width: 500px;
+      height: 600px;
+      overflow: hidden;
+    }
+
+    .slide {
+      height: 400px;
+      margin: 0;
+      border-radius: 20px;
+      background-size: cover;
+      background-position: center;
+      flex-shrink: 0;
+      opacity: 0.2;
+      filter: blur(4px);
+      transition: transform 0.6s ease, opacity 0.6s ease, filter 0.6s ease, -webkit-mask-image 0.6s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+      -webkit-mask-image: none;
+      mask-image: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .slide.above {
+      opacity: 0.5;
+      transform: scale(0.8);
+      filter: blur(2px);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 50%);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+    }
+
+    .slide.below {
+      opacity: 0.5;
+      transform: scale(0.8);
+      filter: blur(2px);
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 50%);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="slider-section">
+    <div class="thumbs">
+      <div class="thumb" style="background:linear-gradient(135deg,#ff7a7a,#ffb199);"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#7ad1ff,#7ab6ff);"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#a3ff7a,#d1ff7a);"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#c07aff,#e6a6ff);"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#ffd77a,#ffd18a);"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#7affc3,#7ad8ff);"></div>
+      <div class="thumb" style="background:linear-gradient(135deg,#ff9db1,#ffb3d1);"></div>
+    </div>
+    <div class="slider-container">
+      <div class="slider-track">
+        <div class="slide" style="background:linear-gradient(135deg,#ff7a7a,#ffb199);"></div>
+        <div class="slide" style="background:linear-gradient(135deg,#7ad1ff,#7ab6ff);"></div>
+        <div class="slide" style="background:linear-gradient(135deg,#a3ff7a,#d1ff7a);"></div>
+        <div class="slide" style="background:linear-gradient(135deg,#c07aff,#e6a6ff);"></div>
+        <div class="slide" style="background:linear-gradient(135deg,#ffd77a,#ffd18a);"></div>
+        <div class="slide" style="background:linear-gradient(135deg,#7affc3,#7ad8ff);"></div>
+        <div class="slide" style="background:linear-gradient(135deg,#ff9db1,#ffb3d1);"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    const track = document.querySelector('.slider-track');
+    const slides = document.querySelectorAll('.slide');
+    const thumbs = document.querySelectorAll('.thumb');
+    let currentIndex = 0;
+    const slideHeight = slides[0].offsetHeight + 20;
+    let autoPlay;
+    function updateSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.remove('active', 'above', 'below');
+
+        if (index === currentIndex) {
+          slide.classList.add('active');
+        } else if (index === currentIndex - 1) {
+          slide.classList.add('above');
+        } else if (index === currentIndex + 1) {
+          slide.classList.add('below');
+        }
+      });
+
+      thumbs.forEach((thumb, index) => {
+        thumb.classList.toggle('active', index === currentIndex);
+      });
+      const container = document.querySelector('.slider-container');
+      const activeSlide = slides[currentIndex];
+
+      const containerCenter = container.offsetHeight / 2;
+      const activeSlideCenter = activeSlide.offsetTop + activeSlide.offsetHeight / 2;
+      const offset = containerCenter - activeSlideCenter;
+
+      track.style.transform = `translateY(${offset}px)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateSlides();
+    }
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlides();
+        restartAutoPlay();
+      });
+    });
+
+    function startAutoPlay() {
+      autoPlay = setInterval(nextSlide, 2000);
+    }
+
+    function restartAutoPlay() {
+      clearInterval(autoPlay);
+      startAutoPlay();
+    }
+
+    updateSlides();
+    startAutoPlay();
+  </script>
+
+</body>
+
+</html>

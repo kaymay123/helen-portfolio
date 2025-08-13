@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Helen Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1958/1958290.png">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="scrollTopBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="white">
+      <path d="M12 19V5M5 12l7-7 7 7" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  </div>
+  <canvas id="particleCanvas"></canvas>
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower">
+    <!-- <span class="cursor-text">OPEN</span> -->
+  </div>
+
+  <!-- Header -->
+  <div class="header-wrapper">
+    <header class="site-header">
+      <div class="container">
+        <div class="top-row">
+          <div class="logo" id="logo"><span class="highlight-pink">Helen</span></div>
+          <div class="menu-toggle" onclick="toggleMenu(this)">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+
+        <nav class="menu">
+          <a href="about.html" class="clickable xnx">About Me</a>
+          <a href="myport.html" class="clickable xnx">Portfolio</a>
+          <a href="target.html" class="clickable xnx">Expertise</a>
+          <a href="resume.html" class="clickable xnx">Resume</a>
+          <div class="icon-group">
+            <a href="https://ca.linkedin.com/in/helenvodesign" target="_blank" class="clickable">
+              <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank" class="clickable"><i class="fab fa-instagram"></i></a>
+          </div>
+          <a href="#" class="clickable hire-btn">Hire Me!</a>
+        </nav>
+      </div>
+    </header>
+  </div>
+
+  <!-- Intro Section -->
+  <section class="intro-wrapper">
+    <div class="intro container">
+      <div class="intro-text">
+        <div class="available">📌 Available for freelance</div>
+        <h1 id="typewriter"></h1>
+        <p class="description">A Graphic Design Student with 2+ years of experience in Freelancing and helping
+          community. I love to build awesome logos and brand identity for cool companies :)</p>
+        <div class="intro-buttons">
+          <a href="#" class="btn-black">Hire Me!</a>
+          <a href="myport.html" class="btn-outline">See My Portfolio</a>
+        </div>
+        <div class="location">📍 Vancouver, British Columbia</div>
+      </div>
+      <div class="intro-image">
+        <img src="assets/img/intro.png" alt="Helen Portrait">
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured  -->
+  <section class="featured-projects">
+    <div class="section-title">
+      <span>Featured Projects</span>
+      <img src="assets/img/arrow-handdrawn.png" alt="arrow" class="arrow-icon">
+    </div>
+
+    <div class="projects-wrapper">
+      <div class="project-card blue tilt-left" onclick="window.location.href='project_courtly.html'">
+        <img src="assets/img/courtly.png" alt="Courtly project">
+        <h3>Courtly<br>
+          <p style="font-weight: 300; margin: 0; font-size: 13px;">Court booking platform for tennis, pickleball, and
+            badminton.</p>
+        </h3>
+        <button class="btn"><span>See Project</span></button>
+      </div>
+      <div class="project-card yellow tilt-none" onclick="window.location.href='project_street.html'">
+        <img src="assets/img/streetpulse.png" alt="Street Pulse project">
+        <h3>Street Pulse<br>
+          <p style="font-weight: 300; margin: 0; font-size: 13px;">Bold event branding inspired by street culture.</p>
+        </h3>
+        <button class="btn"><span>See Project</span></button>
+      </div>
+      <div class="project-card pink tilt-right" onclick="window.location.href='project_whispurr.html'">
+        <img src="assets/img/whis.png" alt="Pluff project">
+        <h3>Whispurr<br>
+          <p style="font-weight: 300; margin: 0; font-size: 13px;">Cozy diary app with interactive stuffies.</p>
+        </h3>
+        <button class="btn"><span>See Project</span></button>
+      </div>
+    </div>
+
+    <div class="portfolio-btn-wrapper">
+      <a href="myport.html" class="portfolio-btn" target="_blank">Check my Portfolio</a>
+    </div>
+
+
+  </section>
+
+  <!-- What I Do -->
+  <section class="what-i-do">
+    <div class="section-title">
+      <span>What I do</span>
+      <img src="assets/img/arrow-handdrawn.png" alt="arrow" class="arrow-icon">
+    </div>
+
+    <div class="what-i-do-grid">
+      <div class="what-box">
+        <div class="pin"></div>
+        <h4>Branding and Identity</h4>
+        <div class="bubble"></div>
+      </div>
+      <div class="what-box">
+        <div class="pin"></div>
+        <h4>Print Design</h4>
+        <div class="bubble"></div>
+      </div>
+      <div class="what-box">
+        <div class="pin"></div>
+        <h4>Packaging Design</h4>
+        <div class="bubble"></div>
+      </div>
+      <div class="what-box">
+        <div class="pin"></div>
+        <h4>Illustration and Art</h4>
+        <div class="bubble"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Experience -->
+  <section class="my-experience">
+    <div class="section-title">
+      <span>My Experience</span>
+      <img src="assets/img/arrow-handdrawn.png" alt="arrow" class="arrow-icon">
+    </div>
+    <div class="experience-stack">
+      <div class="experience-list container">
+        <div class="experience-box blue">
+          <div class="pin-icon">
+            <img src="assets/img/pin-icon.png" alt="Pin icon">
+          </div>
+          <p class="experience-date">May 2023 - Present</p>
+          <h3 class="experience-place">Graphic Design Student </h3>
+          <hr class="divider" />
+          <p class="experience-detail">I designed layouts and graphics for product illustrations, company logos, and
+            websites, applying strong visual principles and aesthetic design. I determined the arrangement of images and
+            text, selected typography, and used software to generate visuals. I also reviewed final designs, presented
+            drafts to clients or professors, and made improvements based on their feedback.</p>
+        </div>
+
+        <div class="experience-box yellow">
+          <div class="pin-icon">
+            <img src="assets/img/pin-icon.png" alt="Pin icon">
+          </div>
+          <p class="experience-date">2019 - 2021</p>
+          <h3 class="experience-place">Graphic Design Freelancer</h3>
+          <hr class="divider" />
+          <p class="experience-detail">I assisted in the design and execution of branding packages for new businesses,
+            focusing on logo creation, brand identity, and the development of marketing materials.</p>
+        </div>
+
+        <div class="experience-box pink">
+          <div class="pin-icon">
+            <img src="assets/img/pin-icon.png" alt="Pin icon">
+          </div>
+          <p class="experience-date">Apr 2022 - May 2023</p>
+          <h3 class="experience-place">Assistant Event Manager, iaeCanada</h3>
+          <hr class="divider" />
+          <p class="experience-detail">Designed promotional materials for digital and print campaigns. Coordinated event
+            evaluations and timelines with team members. Worked with editors and marketing staff to ensure smooth
+            execution, using reference materials from various sources to support planning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About me -->
+  <section class="about-me">
+    <div class="section-title">
+      <span>About me</span>
+      <img src="assets/img/arrow-handdrawn.png" alt="arrow" class="arrow-icon">
+    </div>
+    <div class="about-container">
+      <div class="photo-stack">
+        <div class="pin-icon">📌</div>
+        <div class="stack-layer layer-1"></div>
+        <div class="stack-layer layer-2"></div>
+        <div class="stack-layer layer-3"></div>
+        <div class="photo-stack-rotate">
+          <img src="assets/img/intro.png" class="photo" />
+          <img src="assets/img/intro.png" class="photo" />
+          <img src="assets/img/intro.png" class="photo" />
+        </div>
+      </div>
+      <div class="intro-text">
+        <p>Hi, I’m Helen — a UI/UX and graphic designer who finds joy in creating designs that feel both playful and
+          purposeful.
+          .</p>
+        <p>
+          My work is inspired by crayon textures, soft colors, and everyday moments. I love blending hand-drawn charm
+          with clean digital layouts to craft visuals that connect, communicate, and spark curiosity. Whether it’s a
+          logo, interface, or tiny sticker, I always aim to make something honest, friendly, and full of heart.
+        </p>
+        <a href="#branding" class="btn-outline">My Branding</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-title">
+      <span>FAQ</span>
+      <img src="assets/img/arrow-handdrawn.png" alt="arrow" class="arrow-icon">
+    </div>
+    <div class="faq-container">
+      <div class="faq-card">
+        <div class="faq-question">
+          <span>What services do you offer?</span>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          I offer branding, web design, and illustration services tailored to your unique vision and needs.
+        </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <span>How do I start a project with you?</span>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          Simply reach out via the contact form on my website. We’ll schedule a consultation to discuss your needs, the
+          scope of your project, and how we can achieve your goals together.
+        </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <span>How long does a typical project take?</span>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          The timeline varies based on the project’s complexity and scope. Simple designs can take a few days, whereas
+          more involved projects might take several weeks. I strive to work efficiently while ensuring high-quality
+          results.
+        </div>
+      </div>
+      <div class="faq-card">
+        <div class="faq-question">
+          <span>Can you work within my budget?</span>
+          <span class="toggle-icon">+</span>
+        </div>
+        <div class="faq-answer">
+          I’m committed to delivering exceptional design solutions that cater to various budgets. Let’s discuss what you
+          have in mind, and I will tailor a proposal that aligns with your financial considerations.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-row">
+        <nav class="footer-nav">
+          <a href="#">Portfolio</a>
+          <a href="#">Expertise</a>
+          <a href="#">Resume</a>
+          <a href="#">FAQ</a>
+        </nav>
+
+        <div class="icon-group">
+          <a href="https://ca.linkedin.com/in/helenvodesign" target="_blank" class="clickable">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" class="clickable"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <h1 class="footer-title">Ready to Bring Your Vision to Life?</h1>
+      <p class="footer-text">
+        Let’s make something incredible together! Reach out to discuss your project,<br />
+        and let’s create designs that resonate and inspire.
+      </p>
+
+      <a href="#contact" class="footer-btn">Contact Me</a>
+
+
+      <p class="footer-copy">Helen ©all rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    /**
+     * ParticleNetwork Class
+     * Creates and manages an interactive particle network animation
+     */
+    class ParticleNetwork {
+      constructor(canvas, config = {}) {
+        this.canvas = canvas;
+        this.ctx = canvas.getContext('2d', { alpha: true });
+        if (!this.ctx) {
+          throw new Error('Could not initialize canvas context');
+        }
+
+        this.config = this.validateConfig({
+          particleCount: 120,
+          minRadius: 2,
+          maxRadius: 6,
+          particleColor: '#ffffff',
+          lineColor: '#ffffff',
+          lineWidth: 1,
+          lineOpacity: 0.15,
+          maxDistance: 150,
+          moveSpeed: 1,
+          backgroundColor: '#111111',
+          backgroundOpacity: 1,
+          particleOpacity: 0.8,
+          mouseRadius: 200,
+          mouseInteraction: true,
+          pulseEnabled: true,
+          pulseSpeed: 0.02,
+          ...config
+        });
+
+        this.particles = [];
+        this.animationId = null;
+        this.isRunning = false;
+        this.mousePosition = null;
+        this.pulseAngle = 0;
+        this.boundHandleResize = this.handleResize.bind(this);
+        this.boundHandleMouseMove = this.handleMouseMove.bind(this);
+        this.boundHandleMouseLeave = this.handleMouseLeave.bind(this);
+
+        this.handleResize();
+        this.createParticles();
+        this.setupEventListeners();
+      }
+
+      validateConfig(config) {
+        const numericParams = [
+          'particleCount', 'minRadius', 'maxRadius', 'lineWidth',
+          'lineOpacity', 'maxDistance', 'moveSpeed', 'backgroundOpacity',
+          'particleOpacity', 'mouseRadius', 'pulseSpeed'
+        ];
+        numericParams.forEach(param => {
+          if (typeof config[param] !== 'number' || isNaN(config[param])) {
+            throw new Error(`Invalid ${param}: must be a number`);
+          }
+        });
+
+        const booleanParams = ['mouseInteraction', 'pulseEnabled'];
+        booleanParams.forEach(param => {
+          if (typeof config[param] !== 'boolean') {
+            throw new Error(`Invalid ${param}: must be a boolean`);
+          }
+        });
+
+        const colorParams = ['backgroundColor', 'particleColor', 'lineColor'];
+        const hexColorRegex = /^#[0-9A-Fa-f]{6}$/;
+        colorParams.forEach(param => {
+          if (!hexColorRegex.test(config[param])) {
+            throw new Error(`Invalid ${param}: must be a valid hex color`);
+          }
+        });
+
+        return config;
+      }
+
+      setupEventListeners() {
+        window.addEventListener('resize', this.boundHandleResize);
+        this.canvas.addEventListener('mousemove', this.boundHandleMouseMove);
+        this.canvas.addEventListener('mouseleave', this.boundHandleMouseLeave);
+      }
+
+      cleanup() {
+        window.removeEventListener('resize', this.boundHandleResize);
+        this.canvas.removeEventListener('mousemove', this.boundHandleMouseMove);
+        this.canvas.removeEventListener('mouseleave', this.boundHandleMouseLeave);
+        this.stop();
+      }
+
+      handleMouseMove(e) {
+        const rect = this.canvas.getBoundingClientRect();
+        this.mousePosition = {
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top
+        };
+      }
+
+      handleMouseLeave() {
+        this.mousePosition = null;
+      }
+
+      handleResize() {
+        this.canvas.width = this.canvas.clientWidth;
+        this.canvas.height = this.canvas.clientHeight;
+      }
+
+      createParticles() {
+        this.particles = [];
+        for (let i = 0; i < this.config.particleCount; i++) {
+          const sizeRange = this.config.maxRadius - this.config.minRadius;
+          const randomSize = Math.random() * sizeRange + this.config.minRadius;
+          this.particles.push({
+            x: Math.random() * this.canvas.width,
+            y: Math.random() * this.canvas.height,
+            dx: (Math.random() - 0.5) * this.config.moveSpeed,
+            dy: (Math.random() - 0.5) * this.config.moveSpeed,
+            radius: randomSize
+          });
+        }
+      }
+
+      updateParticles() {
+        this.pulseAngle += this.config.pulseSpeed;
+        this.particles.forEach(particle => {
+          if (this.config.pulseEnabled) {
+            const pulseScale = Math.sin(this.pulseAngle) * 0.5 + 1;
+            particle.currentRadius = particle.radius * pulseScale;
+          } else {
+            particle.currentRadius = particle.radius;
+          }
+
+          particle.x += particle.dx;
+          particle.y += particle.dy;
+
+          if (this.config.mouseInteraction && this.mousePosition) {
+            const dx = this.mousePosition.x - particle.x;
+            const dy = this.mousePosition.y - particle.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < this.config.mouseRadius) {
+              const force = (this.config.mouseRadius - distance) / this.config.mouseRadius;
+              const angle = Math.atan2(dy, dx);
+              const repelX = Math.cos(angle) * force * 0.5;
+              const repelY = Math.sin(angle) * force * 0.5;
+              particle.dx -= repelX;
+              particle.dy -= repelY;
+            }
+          }
+
+          if (particle.x < 0 || particle.x > this.canvas.width) {
+            particle.dx = -particle.dx;
+          }
+          if (particle.y < 0 || particle.y > this.canvas.height) {
+            particle.dy = -particle.dy;
+          }
+
+          const speed = Math.sqrt(particle.dx * particle.dx + particle.dy * particle.dy);
+          if (speed > this.config.moveSpeed) {
+            particle.dx = (particle.dx / speed) * this.config.moveSpeed;
+            particle.dy = (particle.dy / speed) * this.config.moveSpeed;
+          }
+        });
+      }
+
+      drawParticles() {
+        this.ctx.fillStyle = this.config.particleColor;
+        this.ctx.globalAlpha = this.config.particleOpacity;
+        this.particles.forEach(particle => {
+          this.ctx.beginPath();
+          this.ctx.arc(particle.x, particle.y, particle.currentRadius || particle.radius, 0, Math.PI * 2);
+          this.ctx.fill();
+        });
+        this.ctx.globalAlpha = 1;
+      }
+      drawBackgroundGradient() {
+        const ctx = this.ctx;
+        const gradient = ctx.createLinearGradient(0, 0, 0, this.canvas.height);
+        gradient.addColorStop(0, '#ffFFFF');   // Trên: trắng
+        gradient.addColorStop(1, '#ffffff');   // Dưới: xanh nhạt
+
+        ctx.fillStyle = gradient;
+        ctx.globalAlpha = this.config.backgroundOpacity;
+        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        ctx.globalAlpha = 1;
+      }
+
+      drawConnections() {
+        for (let i = 0; i < this.particles.length; i++) {
+          for (let j = i + 1; j < this.particles.length; j++) {
+            const dx = this.particles[i].x - this.particles[j].x;
+            const dy = this.particles[i].y - this.particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < this.config.maxDistance) {
+              const opacity = 1 - (distance / this.config.maxDistance);
+              const color = this.hexToRgb(this.config.lineColor);
+              this.ctx.beginPath();
+              this.ctx.strokeStyle = `rgba(${color}, ${opacity * this.config.lineOpacity})`;
+              this.ctx.lineWidth = this.config.lineWidth;
+              this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
+              this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
+              this.ctx.stroke();
+            }
+          }
+        }
+      }
+
+      hexToRgb(hex) {
+        hex = hex.replace(/^#/, '');
+
+        if (hex.length === 3) {
+          hex = hex.split('').map(c => c + c).join('');
+        }
+
+        const result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        if (!result) {
+          return '255,255,255';
+        }
+
+        return result.slice(1).map(n => parseInt(n, 16)).join(',');
+      }
+
+      stop() {
+        this.isRunning = false;
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+      }
+
+      start() {
+        if (!this.isRunning) {
+          this.isRunning = true;
+          this.animate();
+        }
+      }
+
+      animate() {
+        this.drawBackgroundGradient();
+
+        this.updateParticles();
+        this.drawConnections();
+        this.drawParticles();
+
+        if (this.isRunning) {
+          this.animationId = requestAnimationFrame(this.animate.bind(this));
+        }
+      }
+    }
+
+    // Khởi tạo khi DOM sẵn sàng
+    function getParticleCount() {
+      if (window.innerWidth <= 480) { // màn hình nhỏ (điện thoại)
+        return 20; // giảm particle
+      } else if (window.innerWidth <= 768) { // tablet
+        return 200;
+      }
+      return 340; // desktop hoặc lớn hơn
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const canvas = document.getElementById('particleCanvas');
+
+      function resizeCanvas() {
+        canvas.width = canvas.clientWidth;
+        canvas.height = canvas.clientHeight;
+      }
+      resizeCanvas();
+      window.addEventListener('resize', () => {
+        resizeCanvas();
+        // Có thể thêm restart hoặc update config nếu muốn
+      });
+
+      const network = new ParticleNetwork(canvas, {
+        particleCount: getParticleCount(),
+        minRadius: 0.7,
+        maxRadius: 0.8,
+        particleColor: '#1D6584',
+        lineColor: '#244655',
+        lineWidth: 0.4,
+        lineOpacity: 0.55,
+        maxDistance: 90,
+        moveSpeed: 0.8,
+        backgroundColor: '#BDE5F6',
+        backgroundOpacity: 1,
+        particleOpacity: 0.5,
+        mouseRadius: 100,
+        mouseInteraction: true,
+        pulseEnabled: true,
+        pulseSpeed: 0.02
+      });
+
+      network.start();
+    });
+
+  </script>
+</body>
+
+</html>

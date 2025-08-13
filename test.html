@@ -1,0 +1,122 @@
+<div id="rating-widget">
+  <style>
+    #rating-widget {
+      display: inline-block;
+      padding: 10px;
+      position: relative;
+      border: 2px solid #00bcd4;
+      border-radius: 12px;
+      background: #E8F7FE;
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Hiệu ứng ánh sáng quét qua quét lại */
+    #rating-widget::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          transparent 100%);
+      transform: skewX(-20deg);
+      animation: shine 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+
+      100% {
+        left: 125%;
+      }
+    }
+
+
+    #rating-widget .faces {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    #rating-widget .face {
+      font-size: 30px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+      filter: grayscale(100%) brightness(0.8);
+    }
+
+    #rating-widget .face.active {
+      animation: bounce 0.6s infinite alternate;
+      filter: grayscale(0%) brightness(1.2) drop-shadow(0 0 6px currentColor);
+      transform: scale(1.2);
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: scale(1.2) translateY(0);
+      }
+
+      100% {
+        transform: scale(1.2) translateY(-5px);
+      }
+    }
+
+    #rating-widget input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(to right, gold var(--value, 50%), #ddd var(--value, 50%));
+      outline: none;
+    }
+
+    #rating-widget input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 2px solid #aaa;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+
+  <div class="faces">
+    <div class="face" data-index="0" style="color:#f44336;">😡</div>
+    <div class="face" data-index="1" style="color:#9c27b0;">☹️</div>
+    <div class="face" data-index="2" style="color:#ffeb3b;">😐</div>
+    <div class="face" data-index="3" style="color:#00bcd4;">🙂</div>
+    <div class="face" data-index="4" style="color:#2196f3;">😄</div>
+  </div>
+
+  <input type="range" min="0" max="4" step="1" value="3" id="rating-slider">
+
+  <script>
+    (function () {
+      const widget = document.querySelector('#rating-widget');
+      const slider = widget.querySelector('#rating-slider');
+      const faces = widget.querySelectorAll('.face');
+
+      function updateFace(index) {
+        faces.forEach(f => f.classList.remove('active'));
+        faces[index].classList.add('active');
+        slider.style.setProperty('--value', ((index / 4) * 100) + '%');
+      }
+
+      slider.addEventListener('input', e => {
+        updateFace(+slider.value);
+      });
+
+      updateFace(+slider.value);
+    })();
+  </script>
+</div>
